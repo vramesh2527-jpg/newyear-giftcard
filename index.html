@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Munni ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:black;
+  overflow:hidden;
+  height:100vh;
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  bottom:-50px;
+  font-size:20px;
+  animation:floatUp 8s linear infinite;
+  opacity:0.8;
+}
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1}
+  to{transform:translateY(-120vh);opacity:0}
+}
+
+/* Center container */
+.center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+
+/* Envelope */
+.envelope{
+  width:260px;
+  height:170px;
+  background:#87ceeb;
+  border-radius:8px;
+  position:relative;
+  cursor:pointer;
+  transition:transform 0.4s;
+}
+.envelope:hover{transform:scale(1.05)}
+
+.flap{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
+  background:#6ec1e4;
+  clip-path:polygon(0 0,50% 55%,100% 0);
+}
+
+.red-heart{
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:28px;
+  color:red;
+}
+
+.sudhithi{
+  position:absolute;
+  bottom:6px;
+  right:10px;
+  font-size:12px;
+}
+
+/* Tap text */
+.tap{
+  margin-top:10px;
+  color:white;
+  font-size:14px;
+}
+
+/* LETTER PAGE */
+.letter{
+  position:fixed;
+  inset:0;
+  padding:25px;
+  transform:scale(0);
+  transition:0.6s ease;
+  overflow-y:auto;
+
+  /* 🌸 Light Red Background + Design */
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35) 2px, transparent 3px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.35) 2px, transparent 3px),
+    radial-gradient(circle at 50% 70%, rgba(255,255,255,0.35) 2px, transparent 3px),
+    linear-gradient(135deg, #ffd6d6, #ffb3b3);
+  background-size: 60px 60px, 80px 80px, 100px 100px, cover;
+}
+
+.letter.show{
+  transform:scale(1);
+}
+
+/* Letter text */
+.letter p{
+  font-size:15px;
+  line-height:1.7;
+  color:#4a1c1c; /* dark red text for readability */
+}
+
+/* Highlight text */
+.hny{
+  margin-top:30px;
+  font-size:24px;
+  text-align:center;
+  font-family:'Dancing Script',cursive;
+  color:#b00020;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 5px #ff9aa2}
+  to{text-shadow:0 0 18px #ff4d6d}
+}
+</style>
+</head>
+
+<body>
+
+<div class="center">
+  <div class="envelope" onclick="openLetter()">
+    <div class="flap"></div>
+    <div class="red-heart">❤️</div>
+    <div class="sudhithi">~Sudhithi ❤️</div>
+  </div>
+  <div class="tap">Tap on the gift card to open</div>
+</div>
+
+<div class="letter" id="letter">
+  <p>
+Hi Munni,<br><br>
+Thank you for being the best part of my life this year🤗, and i hope our friendship will stay long forever 🤞🏼..<br><br>
+inka em chepalo teliyatledhu, enni ani chepina saripodhu best memories ante neetho matladadame maybe for me and prathidhi special eh ni vishyamlo.<br><br>
+and Hyma ki chepu that mari antha andham ga undadhu ani andhari dhisti tagultundhi 🧿 which i don't like it at all and also tell her that i miss her soo much🫩.<br><br>
+Munni koncham ne daily busy schedule lo atleast oka 10min aina matho matladithe happy ga brathikestham :( and yeah inka anthe le ily 🙂.
+  </p>
+
+  <div class="hny">Happy New Year Ammadi 🤍</div>
+</div>
+
+<script>
+function openLetter(){
+  document.getElementById("letter").classList.add("show");
+}
+
+/* Generate hearts */
+const colors=["#ff69b4","#ffffff","#a52a2a"];
+for(let i=0;i<35;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=12+Math.random()*18+"px";
+  h.style.color=colors[Math.floor(Math.random()*3)];
+  h.style.animationDuration=5+Math.random()*6+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
+
